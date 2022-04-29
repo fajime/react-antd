@@ -1,11 +1,13 @@
 import React from 'react';
 import { Button } from './components/Button';
 import './App.css';
-
+/**
+ * Init App
+ * @returns {JSX.Element} Main App component
+ */
 function App() {
   const suma = (a: number, b: number): number => {
     const resultado = a + b;
-    console.log(resultado);
     return resultado;
   };
 

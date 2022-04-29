@@ -217,7 +217,18 @@ module.exports = {
     ],
     "object-shorthand": 2,
     "one-var": [2, "never"],
-    "padding-line-between-statements": [2,
+    "padding-line-between-statements": "off",
+    "@typescript-eslint/padding-line-between-statements": [2,
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": ["interface", "type"]
+      },
+      {
+        "blankLine": "never",
+        "prev": "multiline-block-like",
+        "next": "*"
+      },
       {
         "blankLine": "always",
         "prev": "class",
@@ -229,8 +240,8 @@ module.exports = {
         "next": "class"
       },
       {
-        "blankLine": "always",
-        "prev": "*",
+        "blankLine": "never",
+        "prev": "*/",
         "next": "function"
       },
       {
@@ -242,7 +253,40 @@ module.exports = {
         "blankLine": "any",
         "prev": "*",
         "next": "return"
-      }],
+      }
+    ],
+    // "padding-line-between-statements": [2,
+      // {
+      //   "blankLine": "never",
+      //   "prev": "multiline-block-like",
+      //   "next": "*"
+      // },
+      // {
+      //   "blankLine": "always",
+      //   "prev": "class",
+      //   "next": "*"
+      // },
+      // {
+      //   "blankLine": "always",
+      //   "prev": "*",
+      //   "next": "class"
+      // },
+      // {
+      //   "blankLine": "always",
+      //   "prev": "*",
+      //   "next": "function"
+      // },
+      // {
+      //   "blankLine": "always",
+      //   "prev": "function",
+      //   "next": "*"
+      // },
+      // {
+      //   "blankLine": "any",
+      //   "prev": "*",
+      //   "next": "return"
+      // }
+    // ],
     "prefer-arrow-callback": 2,
     "prefer-const": 2,
     "prefer-numeric-literals": 2,
