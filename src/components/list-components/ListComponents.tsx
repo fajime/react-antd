@@ -8,7 +8,7 @@ export const ListComponents = ({ components, setComp }: List) => {
     <>
       {components.map((item, index) => {
         return (
-          <div onClick={() => setComp(item)} key={index}>
+          <div className="item-list" onClick={() => setComp(item)} key={index}>
             {item}
           </div>
         );

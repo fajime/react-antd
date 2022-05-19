@@ -1,10 +1,14 @@
 /* eslint-disable key-spacing */
 import { useEffect, useState } from 'react';
-import { Table } from './../../ant-modules';
-import { RootState } from './../../store/store';
-import { useAppSelector } from './../../hooks/useStore';
+import { Table } from '../../ant-modules';
+import { RootState } from '../../store/store';
+import { useAppSelector } from '../../hooks/useStore';
 
-export const TablaUsuarios = () => {
+type TablaUsuariosType = {
+  onClick: (param: any) => void;
+};
+
+export const TablaUsuarios = ({ onClick }: TablaUsuariosType) => {
   const [loader, setLoader] = useState(false);
   const [cols, setColumns] = useState<any[]>([]);
   const { users } = useAppSelector((state: RootState) => state.auth);
@@ -26,5 +30,18 @@ export const TablaUsuarios = () => {
     setLoader(true);
   }, [users]);
 
-  return <>{loader && <Table columns={cols} dataSource={users} />}</>;
+  return (
+    <>
+      {loader && (
+        <Table
+          onRow={(record) => ({
+            onClick: () => onClick(record)
+          })}
+          rowClassName={(record, index) => (index % 2 === 0 ? 'table-row' : 'table-row table-row--imp')}
+          columns={cols}
+          dataSource={users}
+        />
+      )}
+    </>
+  );
 };

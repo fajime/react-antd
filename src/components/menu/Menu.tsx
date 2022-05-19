@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Layout } from 'antd';
 import { NavLink } from 'react-router-dom';
 import { RootState } from './../../store/store';
 import { useAppSelector } from './../../hooks/useStore';
@@ -17,7 +16,7 @@ export const Menu = () => {
   });
 
   return (
-    <Layout className="content-links">
+    <div className="content-links">
       <NavLink to="/login" className="link-text">
         Login
       </NavLink>
@@ -27,7 +26,11 @@ export const Menu = () => {
       <NavLink to="/usuarios" className="link-text">
         Usuarios
       </NavLink>
+      <NavLink to="/hooks" className="link-text">
+        Hooks
+      </NavLink>
       <h2>{userMenu}</h2>
-    </Layout>
+    </div>
   );
 };
+export default Menu;

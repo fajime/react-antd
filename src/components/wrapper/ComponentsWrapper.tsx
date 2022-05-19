@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { Wrapper } from './Wrapper';
 import { loadComponent } from './../../utils/loadComponent';
 type ComponentsWrapperType = {
-  component: string;
+  component: ReactNode;
 };
 
 export const ComponentsWrapper = ({ component }: ComponentsWrapperType) => {
-  const [loadedComponent, setLoaded] = useState<any>(null);
+  const [loadedComponent, setLoaded] = useState<ReactNode>(null);
 
   useEffect(() => {
     setLoaded(loadComponent(component));

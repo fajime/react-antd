@@ -1,13 +1,12 @@
 /* eslint-disable key-spacing */
 import { useNavigate } from 'react-router-dom';
-import { Button, Checkbox, Content, Footer, Form, Header, Input, notification } from './../ant-modules';
+import { Content, Form, Header, notification } from './../ant-modules';
+import { DlButton, DlCheckbox, DlInput } from './../components/dl';
 
 import { loadUsers, login } from './../store/actions/authActions';
 import { useAppDispatch } from './../hooks/useStore';
 
 export const Login = () => {
-  // const { logged, name, users } = useAppSelector((state: RootState) => state.auth);
-
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -46,30 +45,35 @@ export const Login = () => {
           onFinishFailed={handleFailed}
           autoComplete="off"
         >
-          <Form.Item label="Name" name="name" rules={[{ required: true, message: 'Please input your name!' }]}>
-            <Input />
+          <Form.Item
+            labelCol={{ span: 6 }}
+            wrapperCol={{ span: 12 }}
+            label="Name"
+            name="name"
+            rules={[{ required: true, message: 'Please input your name!' }]}
+          >
+            <DlInput />
           </Form.Item>
 
           <Form.Item
+            labelCol={{ span: 6 }}
+            wrapperCol={{ span: 12 }}
             label="Username"
             name="username"
             rules={[{ required: true, message: 'Please input your username!' }]}
           >
-            <Input.Password />
+            <DlInput type="password" />
           </Form.Item>
 
-          <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
-            <Checkbox>Remember me</Checkbox>
+          <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 6, span: 24 }}>
+            <DlCheckbox>Remember me</DlCheckbox>
           </Form.Item>
 
-          <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-            <Button className="button" htmlType="submit">
-              Login
-            </Button>
+          <Form.Item wrapperCol={{ offset: 6, span: 24 }}>
+            <DlButton label="Hacer Login" htmlType="submit" />
           </Form.Item>
         </Form>
       </Content>
-      <Footer>FOOTER</Footer>
     </>
   );
 };
