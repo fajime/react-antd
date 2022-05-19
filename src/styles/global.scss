@@ -26,7 +26,7 @@ p {
 .app-layout {
   // @include bgColorMix($primaryColor);
   background-color: #d1d8d6;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .bgHeader {
@@ -86,6 +86,7 @@ p {
 
 .home-layout{
   height: auto;
+  background-color: #cbd6da;
 }
 
 .outlet {
@@ -93,9 +94,9 @@ p {
 }
 
 .comps-wrapper {
-  min-height: 35rem;
+  min-height: 20rem;
   padding: 8rem;
-  background-color: #cdeff0;
+  background-color: #ebeae7;
   display: flex;
   align-items: center;
   justify-content: center;
