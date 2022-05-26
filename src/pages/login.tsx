@@ -17,7 +17,7 @@ export const Login = () => {
     if (logged) {
       dispatch(loadUsers());
       dispatch(loadPosts());
-      navigate('/usuarios', { replace: true });
+      navigate('/home', { replace: true });
     }
   }, [logged]);
 

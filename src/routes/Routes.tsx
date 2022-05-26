@@ -7,8 +7,14 @@ export const AppRoutes = () => {
     <Routes>
       <Route path="*" element={<Login />} />
       <Route path="login" element={<Login />} />
-      <Route path="posts" element={<Posts />} />
-      <Route path="home" element={<Home />}>
+      <Route
+        path="home"
+        element={
+          <PrivatedRoute>
+            <Home />
+          </PrivatedRoute>
+        }
+      >
         <Route path="canvas" element={<Canvas />} />
         <Route path="docs" element={<Docs />} />
         <Route path="tools" element={<Tools />} />
@@ -18,6 +24,14 @@ export const AppRoutes = () => {
         element={
           <PrivatedRoute>
             <Usuarios />
+          </PrivatedRoute>
+        }
+      />
+      <Route
+        path="posts"
+        element={
+          <PrivatedRoute>
+            <Posts />
           </PrivatedRoute>
         }
       />
