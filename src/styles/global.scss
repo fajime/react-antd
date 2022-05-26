@@ -29,18 +29,34 @@ p {
   min-height: 100vh;
 }
 
+.content-layout{
+  height: auto;
+  background-color: #cbd6da;
+}
+
 .bgHeader {
   @include bgColorMix($blue);
 }
 
+.menu {
+  min-height: 4rem;
+  background-color: #596160;
+}
+
+.header-row {
+  background-color: #0c5050;
+  padding: 1rem;
+  min-height: 5rem;
+}
+
+
 .content-links {
-  max-height: 4rem;
+  min-height: 4rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
   padding: 1rem;
-  background-color: #596160;
   width: 100%;
   &.sublinks {
     background-color: #dbe2e2;
@@ -76,19 +92,6 @@ p {
   height: 100%;
 }
 
-.content-sider {
-  padding: 2rem;
-  background-color: $blue;
-  color: white;
-  overflow: auto;
-  height: auto;
-}
-
-.home-layout{
-  height: auto;
-  background-color: #cbd6da;
-}
-
 .outlet {
   margin-bottom: 2rem;
 }
@@ -102,8 +105,16 @@ p {
   justify-content: center;
 }
 
-.item-list {
-  cursor: pointer;
+
+
+.list-components {
+  padding: 3rem;
+  background-color: #169696;
+  font-weight: 500;
+  height: auto;
+  .item-list {
+    cursor: pointer;
+  }
 }
 
 .table-row {
@@ -117,4 +128,8 @@ p {
     @extend .table-row;
     background-color: #797967;
   }
+}
+
+.content-home {
+  height: 100%;
 }

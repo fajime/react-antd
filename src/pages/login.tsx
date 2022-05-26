@@ -52,7 +52,7 @@ export const Login = () => {
       </Header>
       <Content>
         <Form
-          style={{ paddingRight: '10em', paddingTop: '10em' }}
+          style={{ paddingRight: '10em', paddingTop: '16em' }}
           name="basic"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}

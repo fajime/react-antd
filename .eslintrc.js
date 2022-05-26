@@ -213,7 +213,7 @@ module.exports = {
           multiline: true
         },
         ObjectPattern: {
-          minProperties: 5,
+          minProperties: 10,
           multiline: true
         }
       }

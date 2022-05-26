@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable key-spacing */
 import { notification } from '../../ant-modules';
 import * as actions from '../../models';
@@ -25,9 +24,8 @@ export const loadUsers = (): any => (dispatch: any) => {
   getData('https://jsonplaceholder.typicode.com/users')
     .then((data: any) => {
       const users = data.map((user: any) => {
-        // eslint-disable-next-line object-curly-newline
         const { email, id, name, phone, username, website } = user;
-        const item = {
+        return {
           id,
           name,
           email,
@@ -35,7 +33,6 @@ export const loadUsers = (): any => (dispatch: any) => {
           username,
           website
         };
-        return item;
       });
       dispatch(addUsers(users));
     })
@@ -58,13 +55,12 @@ export const loadPosts = (): any => (dispatch: any) => {
     .then((data: any) => {
       const posts = data.map((post: any) => {
         const { userId, id, title, body } = post;
-        const item = {
+        return {
           userId,
           id,
-          title,
-          body
+          title: body.slice(0, title.length / 2),
+          body: body.slice(0, body.length / 4)
         };
-        return item;
       });
       dispatch(addPosts(posts));
     })

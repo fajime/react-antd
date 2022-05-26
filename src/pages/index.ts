@@ -4,4 +4,4 @@ export * from './usuarios';
 export * from './canvas';
 export * from './docs';
 export * from './tools';
-export * from './hooks';
+export * from './posts';

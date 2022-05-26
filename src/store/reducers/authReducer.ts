@@ -28,9 +28,7 @@ export const authReducer = (state: StateProps = stateInit, action: types.AuthAct
       };
     case types.LOGOUT:
       return {
-        ...state,
-        logged: false,
-        name: ''
+        ...stateInit
       };
     case types.ADD_USERS:
       return {

@@ -1,13 +1,13 @@
 import { ReactNode, useEffect, useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { ComponentsWrapper, ListComponents } from './../components';
-import { Col, Content, Layout, Row, Sider } from './../ant-modules';
+import { Col, Row } from './../ant-modules';
 
 import * as dl from './../components/dl';
 
 export const Home = () => {
   const [listado, setListado] = useState<string[]>(['']);
-  const [loadedComponent, setCompo] = useState<ReactNode>(null);
+  const [loadedComponent, setComponent] = useState<ReactNode>(null);
 
   useEffect(() => {
     const keys = Object.keys(dl);
@@ -18,20 +18,12 @@ export const Home = () => {
     setListado(lista);
   }, [dl]);
 
-  const setComponent = (data: string) => {
-    setCompo(data);
-  };
-
   return (
-    <Layout className="home-layout">
-      <Sider className="content-sider">
-        <Row justify="center">
-          <Col span={24}>
-            <ListComponents components={listado} setComp={setComponent} />
-          </Col>
-        </Row>
-      </Sider>
-      <Content className="content-components">
+    <Row className="content-home">
+      <Col className="list-components" span={6}>
+        <ListComponents components={listado} setComp={(data: any) => setComponent(data)} />
+      </Col>
+      <Col span={18}>
         <div className="content-links sublinks">
           <NavLink to="/home/canvas" className="link-text">
             Canvas
@@ -51,7 +43,7 @@ export const Home = () => {
             {loadedComponent && <ComponentsWrapper component={loadedComponent} />}
           </Col>
         </Row>
-      </Content>
-    </Layout>
+      </Col>
+    </Row>
   );
 };
