@@ -1,17 +1,23 @@
 /* eslint-disable key-spacing */
-import React, { createContext, ReactNode, useContext } from 'react';
+import React, { createContext, ReactNode, useContext, useState } from 'react';
 
 type AppContextProps = {
   user: string;
+  changeUser(user: any): void;
 };
 
 type IProps = {
   children: ReactNode;
 };
-const initContext: AppContextProps = { user: 'Anonimo' };
-const AppContext = createContext<AppContextProps>(initContext);
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+const AppContext = createContext<AppContextProps>({ user: 'Anonimo', changeUser: () => {} });
 
 export const AppProvider = ({ children }: IProps) => {
-  return <AppContext.Provider value={initContext}>{children}</AppContext.Provider>;
+  const [user, setUser] = useState<string>('Anonimo');
+  const changeUser = (user: any) => {
+    setUser(user);
+  };
+
+  return <AppContext.Provider value={{ user, changeUser }}>{children}</AppContext.Provider>;
 };
 export const useAppContext = () => useContext(AppContext);

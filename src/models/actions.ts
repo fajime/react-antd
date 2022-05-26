@@ -10,20 +10,12 @@ export type LOAD_USERS_TYPE = typeof LOAD_USERS;
 export const ADD_USERS = 'Auth Add Users';
 export type ADD_USERS_TYPE = typeof ADD_USERS;
 
-export type User = {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  key: number;
-};
-
-export type Users = User[];
+export const ADD_POSTS = 'Auth Add Posts';
+export type ADD_POSTS_TYPE = typeof ADD_POSTS;
 
 export interface LOGIN_ACTION {
   type: LOGIN_TYPE;
   payload: {
-    logged: boolean;
     name: string;
     remember: boolean;
   };
@@ -35,7 +27,7 @@ export interface LOGOUT_ACTION {
 
 export interface LOAD_USERS_ACTION {
   type: LOAD_USERS_TYPE;
-  payload: Users;
+  payload: any;
 }
 
 export interface ADD_USERS_ACTION {
@@ -43,4 +35,9 @@ export interface ADD_USERS_ACTION {
   payload: any;
 }
 
-export type ModifyAction = LOGIN_ACTION | LOGOUT_ACTION | LOAD_USERS_ACTION | ADD_USERS_ACTION;
+export interface ADD_POSTS_ACTION {
+  type: ADD_POSTS_TYPE;
+  payload: any;
+}
+
+export type AuthActions = LOGIN_ACTION | LOGOUT_ACTION | LOAD_USERS_ACTION | ADD_USERS_ACTION | ADD_POSTS_ACTION;

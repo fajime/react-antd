@@ -4,7 +4,8 @@ import * as types from '../../models/actions';
 interface StateProps {
   logged: boolean;
   name: string;
-  users: types.User[];
+  users: any[];
+  posts: any[];
   remember: boolean;
 }
 
@@ -12,10 +13,11 @@ const stateInit: StateProps = {
   logged: false,
   name: '',
   users: [],
+  posts: [],
   remember: false
 };
 
-export const authReducer = (state: StateProps = stateInit, action: types.ModifyAction) => {
+export const authReducer = (state: StateProps = stateInit, action: types.AuthActions) => {
   switch (action.type) {
     case types.LOGIN:
       return {
@@ -35,6 +37,11 @@ export const authReducer = (state: StateProps = stateInit, action: types.ModifyA
         ...state,
         logged: true,
         users: action.payload
+      };
+    case types.ADD_POSTS:
+      return {
+        ...state,
+        posts: action.payload
       };
     default:
       return state;

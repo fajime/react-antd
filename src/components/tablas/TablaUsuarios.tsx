@@ -9,37 +9,49 @@ type TablaUsuariosType = {
 };
 
 export const TablaUsuarios = ({ onClick }: TablaUsuariosType) => {
-  const [loader, setLoader] = useState(false);
-  const [cols, setColumns] = useState<any[]>([]);
+  const [columns, setColumns] = useState<any[] | null>(null);
+  const [dataSource, setDataSource] = useState<any[]>([]);
   const { users } = useAppSelector((state: RootState) => state.auth);
 
-  const colsFilter = users.filter((item: any, index: any) => {
-    return typeof Object.entries(item)[index][1] !== 'object';
-  });
-
-  const colsSelected = colsFilter.map((item: any, index: any) => {
-    return {
-      title: Object.keys(item)[index],
-      dataIndex: Object.keys(item)[index],
-      key: Object.keys(item)[index]
+  const handleDataSource = users.map((user: any) => {
+    // eslint-disable-next-line object-curly-newline
+    const { id, username, email, name, phone, website } = user;
+    const item = {
+      key: id.toString(),
+      name,
+      email,
+      phone,
+      username,
+      website
     };
+
+    return item;
   });
 
+  const handleColumns = () => {
+    return ['name', 'phone', 'username', 'email', 'website'].map((item: any) => {
+      return {
+        title: item.charAt(0).toUpperCase() + item.slice(1),
+        dataIndex: item,
+        key: item
+      };
+    });
+  };
   useEffect(() => {
-    setColumns(colsSelected);
-    setLoader(true);
+    setDataSource(handleDataSource);
+    setColumns(handleColumns());
   }, [users]);
 
   return (
     <>
-      {loader && (
+      {columns && dataSource && (
         <Table
           onRow={(record) => ({
             onClick: () => onClick(record)
           })}
           rowClassName={(record, index) => (index % 2 === 0 ? 'table-row' : 'table-row table-row--imp')}
-          columns={cols}
-          dataSource={users}
+          columns={columns}
+          dataSource={dataSource}
         />
       )}
     </>

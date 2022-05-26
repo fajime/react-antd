@@ -1,25 +1,41 @@
+/* eslint-disable brace-style */
+/* eslint-disable no-throw-literal */
 /* eslint-disable key-spacing */
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Content, Form, Header, notification } from './../ant-modules';
 import { DlButton, DlCheckbox, DlInput } from './../components/dl';
-
-import { loadUsers, login } from './../store/actions/authActions';
-import { useAppDispatch } from './../hooks/useStore';
+import { RootState } from './../store/store';
+import { loadPosts, loadUsers, login } from './../store/actions/authActions';
+import { useAppDispatch, useAppSelector } from './../hooks/useStore';
 
 export const Login = () => {
   const dispatch = useAppDispatch();
+  const { logged } = useAppSelector((state: RootState) => state.auth);
   const navigate = useNavigate();
+  useEffect(() => {
+    if (logged) {
+      dispatch(loadUsers());
+      dispatch(loadPosts());
+      navigate('/usuarios', { replace: true });
+    }
+  }, [logged]);
 
+  const handleFailed = () => {
+    notification.open({
+      message: 'Credenciales incorrectas',
+      description: 'Inténtelo de nuevo...',
+      onClick: () => {
+        console.log('Notification Clicked!');
+      }
+    });
+  };
   const handleLogin = (values: any) => {
     const { name, remember } = values;
-
-    // if (name === 'ad' && username === 'ad') {
-    dispatch(loadUsers());
-    dispatch(login(name, remember));
-    navigate('/usuarios', { replace: true });
-    // }
-  };
-  const handleFailed = () => {
+    if (name === 'fran') {
+      dispatch(login(name, remember));
+      return;
+    }
     notification.open({
       message: 'Credenciales incorrectas',
       description: 'Inténtelo de nuevo...',
