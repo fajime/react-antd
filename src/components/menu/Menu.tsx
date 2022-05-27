@@ -33,6 +33,9 @@ export const Menu = () => {
         <NavLink to="/posts" className="link-text">
           Posts
         </NavLink>
+        <NavLink to="/canvas" className="link-text">
+          Canvas
+        </NavLink>
       </Col>
       <Col className="content-links" span={3}>
         {userMenu && (

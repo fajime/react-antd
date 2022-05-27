@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useContext, useState } from 'react';
+import { createContext, ReactNode, useContext, useState } from 'react';
 
 type AppContextProps = {
   user: string;
@@ -8,7 +8,6 @@ type AppContextProps = {
 type IProps = {
   children: ReactNode;
 };
-// eslint-disable-next-line @typescript-eslint/no-empty-function
 const AppContext = createContext<AppContextProps>({ user: 'Anonimo', changeUser: () => {} });
 
 export const AppProvider = ({ children }: IProps) => {

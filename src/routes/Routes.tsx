@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import { Pruebas } from 'src/pages/pruebas';
 import { Canvas, Docs, Home, Login, Posts, Tools, Usuarios } from '../pages';
 import { PrivatedRoute } from './PrivatedRoute';
 
@@ -7,6 +8,8 @@ export const AppRoutes = () => {
     <Routes>
       <Route path="*" element={<Login />} />
       <Route path="login" element={<Login />} />
+      <Route path="prueba" element={<Pruebas />} />
+      <Route path="canvas" element={<Canvas />} />
       <Route
         path="home"
         element={
