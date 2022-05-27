@@ -1,4 +1,3 @@
-/* eslint-disable key-spacing */
 import { useState } from 'react';
 import { useAppContext } from './../providers/AppProvider';
 import { Col, Row } from './../ant-modules';

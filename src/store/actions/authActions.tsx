@@ -1,4 +1,3 @@
-/* eslint-disable key-spacing */
 import { notification } from '../../ant-modules';
 import * as actions from '../../models';
 import { getData } from '../../utils/http';

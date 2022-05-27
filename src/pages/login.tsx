@@ -1,6 +1,3 @@
-/* eslint-disable brace-style */
-/* eslint-disable no-throw-literal */
-/* eslint-disable key-spacing */
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Content, Form, Header, notification } from './../ant-modules';

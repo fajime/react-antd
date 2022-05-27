@@ -1,4 +1,3 @@
-/* eslint-disable key-spacing */
 import * as types from '../../models/actions';
 
 interface StateProps {

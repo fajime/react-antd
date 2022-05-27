@@ -3,6 +3,7 @@ module.exports = {
   env: {
     node: true
   },
+
   env: {
     browser: true,
     es2021: true
@@ -15,6 +16,7 @@ module.exports = {
     },
     ecmaVersion: 2020,
     sourceType: 'module',
+
     ecmaFeatures: {
       jsx: true,
       modules: true,
@@ -79,14 +81,25 @@ module.exports = {
     'key-spacing': [
       2,
       {
-        align: 'colon',
-        afterColon: false,
-        beforeColon: false,
+        singleLine: {
+          beforeColon: false,
+          afterColon: true,
+          align: 'colon'
+        },
+        multiLine: {
+          beforeColon: false,
+          afterColon: true,
+          align: 'colon'
+        },
+        align: {
+          beforeColon: true,
+          afterColon: true
+        },
         mode: 'minimum'
       }
     ],
+
     'keyword-spacing': 2,
-    // "linebreak-style": [2, "unix"],
     'lines-between-class-members': 2,
     'max-depth': [2, 4],
     'max-nested-callbacks': [2, 4],
@@ -117,7 +130,7 @@ module.exports = {
       }
     ],
     'multiline-ternary': [2, 'always-multiline'],
-    'multiline-comment-style': [1, 'starred-block'],
+    'multiline-comment-style': [1, 'bare-block'],
     'new-cap': 2,
     'new-parens': 2,
     'newline-per-chained-call': 2,
@@ -213,7 +226,7 @@ module.exports = {
           multiline: true
         },
         ObjectPattern: {
-          minProperties: 10,
+          minProperties: 5,
           multiline: true
         }
       }

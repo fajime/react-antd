@@ -1,4 +1,3 @@
-/* eslint-disable key-spacing */
 import { useEffect, useState } from 'react';
 import { Table } from '../../ant-modules';
 import { RootState } from '../../store/store';

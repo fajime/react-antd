@@ -1,4 +1,3 @@
-/* eslint-disable key-spacing */
 import { configureStore } from '@reduxjs/toolkit';
 import thunk from 'redux-thunk';
 

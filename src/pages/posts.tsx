@@ -1,4 +1,3 @@
-/* eslint-disable key-spacing */
 import { Col, Row } from './../ant-modules';
 import { TablaPosts } from './../components';
 

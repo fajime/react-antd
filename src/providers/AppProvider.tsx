@@ -1,4 +1,3 @@
-/* eslint-disable key-spacing */
 import React, { createContext, ReactNode, useContext, useState } from 'react';
 
 type AppContextProps = {
