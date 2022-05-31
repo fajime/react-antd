@@ -8,7 +8,7 @@ type AppContextProps = {
 type IProps = {
   children: ReactNode;
 };
-const AppContext = createContext<AppContextProps>({ user: 'Anonimo', changeUser: () => {} });
+const AppContext = createContext<AppContextProps>({ user: 'Anonimo', changeUser: () => null });
 
 export const AppProvider = ({ children }: IProps) => {
   const [user, setUser] = useState<string>('Anonimo');

@@ -19,8 +19,10 @@ export const Usuarios = () => {
   const searchUsers = (event: any) => {
     const { value } = event.target;
 
-    const result = users.filter((user: any) => {
-      return user.name.includes(value) || user.username.includes(value) || user.email.includes(value);
+    const result = users.filter((iterateUser: any) => {
+      return (
+        iterateUser.name.includes(value) || iterateUser.username.includes(value) || iterateUser.email.includes(value)
+      );
     });
 
     if (result.length > 0) {
@@ -30,7 +32,7 @@ export const Usuarios = () => {
 
   return (
     <>
-      <Row className="header-row">
+      <Row align="middle" className="header-row">
         <Col span={8} offset={4}>
           {user && (
             <h2>

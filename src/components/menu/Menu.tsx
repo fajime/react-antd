@@ -40,7 +40,7 @@ export const Menu = () => {
       <Col className="content-links" span={3}>
         {userMenu && (
           <>
-            Bienvenido: <strong>{userMenu}</strong>
+            Bienvenido: <strong>{userMenu.toUpperCase()}</strong>
           </>
         )}
       </Col>

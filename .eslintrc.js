@@ -78,26 +78,7 @@ module.exports = {
         SwitchCase: 1
       }
     ],
-    'key-spacing': [
-      2,
-      {
-        singleLine: {
-          beforeColon: false,
-          afterColon: true,
-          align: 'colon'
-        },
-        multiLine: {
-          beforeColon: false,
-          afterColon: true,
-          align: 'colon'
-        },
-        align: {
-          beforeColon: true,
-          afterColon: true
-        },
-        mode: 'minimum'
-      }
-    ],
+    'key-spacing': [2, { beforeColon: false, afterColon: true }],
 
     'keyword-spacing': 2,
     'lines-between-class-members': 2,
@@ -226,7 +207,7 @@ module.exports = {
           multiline: true
         },
         ObjectPattern: {
-          minProperties: 5,
+          minProperties: 20,
           multiline: true
         }
       }

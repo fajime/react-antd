@@ -15,7 +15,6 @@ export const TablaUsuarios = ({ onClick }: TablaUsuariosType) => {
   const handleDataSource = () => {
     return users.map((user: any) => {
       const { id, username, email, name, phone, website } = user;
-
       return {
         key: id.toString(),
         name,

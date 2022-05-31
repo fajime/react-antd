@@ -28,8 +28,8 @@ export const Login = () => {
     });
   };
   const handleLogin = (values: any) => {
-    const { name, remember } = values;
-    if (name === 'fran') {
+    const { name, password, remember } = values;
+    if (name === 'fran' && password === 'fran') {
       dispatch(login(name, remember));
       return;
     }
@@ -59,8 +59,8 @@ export const Login = () => {
           autoComplete="off"
         >
           <Form.Item
-            labelCol={{ span: 6 }}
-            wrapperCol={{ span: 12 }}
+            labelCol={{ span: 8 }}
+            wrapperCol={{ span: 8 }}
             label="Name"
             name="name"
             rules={[{ required: true, message: 'Please input your name!' }]}
@@ -69,11 +69,11 @@ export const Login = () => {
           </Form.Item>
 
           <Form.Item
-            labelCol={{ span: 6 }}
-            wrapperCol={{ span: 12 }}
-            label="Username"
-            name="username"
-            rules={[{ required: true, message: 'Please input your username!' }]}
+            labelCol={{ span: 8 }}
+            wrapperCol={{ span: 8 }}
+            label="Password"
+            name="password"
+            rules={[{ required: true, message: 'Please input your password!' }]}
           >
             <DlInput type="password" />
           </Form.Item>
