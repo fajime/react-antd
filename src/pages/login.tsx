@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Content, Form, Header, notification } from './../ant-modules';
+import { Content, Form, notification } from './../ant-modules';
 import { DlButton, DlCheckbox, DlInput } from './../components/dl';
 import { RootState } from './../store/store';
 import { loadPosts, loadUsers, login } from './../store/actions/authActions';
@@ -44,49 +44,48 @@ export const Login = () => {
 
   return (
     <>
-      <Header className="bgHeader" style={{ color: 'white' }}>
-        <span>Header Login</span>
-      </Header>
-      <Content>
-        <Form
-          style={{ paddingRight: '10em', paddingTop: '16em' }}
-          name="basic"
-          labelCol={{ span: 8 }}
-          wrapperCol={{ span: 16 }}
-          initialValues={{ remember: true }}
-          onFinish={handleLogin}
-          onFinishFailed={handleFailed}
-          autoComplete="off"
-        >
-          <Form.Item
+      {!logged && (
+        <Content>
+          <Form
+            style={{ paddingRight: '10em', paddingTop: '16em' }}
+            name="basic"
             labelCol={{ span: 8 }}
-            wrapperCol={{ span: 8 }}
-            label="Name"
-            name="name"
-            rules={[{ required: true, message: 'Please input your name!' }]}
+            wrapperCol={{ span: 16 }}
+            initialValues={{ remember: true }}
+            onFinish={handleLogin}
+            onFinishFailed={handleFailed}
+            autoComplete="off"
           >
-            <DlInput />
-          </Form.Item>
+            <Form.Item
+              labelCol={{ span: 8 }}
+              wrapperCol={{ span: 8 }}
+              label="Name"
+              name="name"
+              rules={[{ required: true, message: 'Please input your name!' }]}
+            >
+              <DlInput />
+            </Form.Item>
 
-          <Form.Item
-            labelCol={{ span: 8 }}
-            wrapperCol={{ span: 8 }}
-            label="Password"
-            name="password"
-            rules={[{ required: true, message: 'Please input your password!' }]}
-          >
-            <DlInput type="password" />
-          </Form.Item>
+            <Form.Item
+              labelCol={{ span: 8 }}
+              wrapperCol={{ span: 8 }}
+              label="Password"
+              name="password"
+              rules={[{ required: true, message: 'Please input your password!' }]}
+            >
+              <DlInput type="password" />
+            </Form.Item>
 
-          <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 6, span: 24 }}>
-            <DlCheckbox>Remember me</DlCheckbox>
-          </Form.Item>
+            <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 6, span: 24 }}>
+              <DlCheckbox>Remember me</DlCheckbox>
+            </Form.Item>
 
-          <Form.Item wrapperCol={{ offset: 6, span: 24 }}>
-            <DlButton label="Hacer Login" htmlType="submit" />
-          </Form.Item>
-        </Form>
-      </Content>
+            <Form.Item wrapperCol={{ offset: 6, span: 24 }}>
+              <DlButton label="Hacer Login" htmlType="submit" />
+            </Form.Item>
+          </Form>
+        </Content>
+      )}
     </>
   );
 };

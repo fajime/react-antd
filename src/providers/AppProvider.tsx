@@ -2,7 +2,7 @@ import { createContext, ReactNode, useContext, useState } from 'react';
 
 type AppContextProps = {
   user: string;
-  changeUser(user: any): void;
+  changeUser(user: string): void;
 };
 
 type IProps = {
@@ -12,8 +12,8 @@ const AppContext = createContext<AppContextProps>({ user: 'Anonimo', changeUser:
 
 export const AppProvider = ({ children }: IProps) => {
   const [user, setUser] = useState<string>('Anonimo');
-  const changeUser = (user: any) => {
-    setUser(user);
+  const changeUser = (selectedUser: string) => {
+    setUser(selectedUser);
   };
 
   return <AppContext.Provider value={{ user, changeUser }}>{children}</AppContext.Provider>;
