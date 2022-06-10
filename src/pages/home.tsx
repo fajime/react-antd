@@ -20,10 +20,10 @@ export const Home = () => {
 
   return (
     <Row className="content-home">
-      <Col className="list-components" span={6}>
-        <ListComponents components={listado} setComp={(data: any) => setComponent(data)} />
+      <Col className="list-components" span={8}>
+        <ListComponents components={listado} setComp={(data: ReactNode) => setComponent(data)} />
       </Col>
-      <Col span={18}>
+      <Col span={16}>
         <div className="content-links sublinks">
           <NavLink to="/home/canvas" className="link-text">
             Canvas

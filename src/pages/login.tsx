@@ -29,7 +29,7 @@ export const Login = () => {
   };
   const handleLogin = (values: any) => {
     const { name, password, remember } = values;
-    if (name === 'fran' && password === 'fran') {
+    if (name === 'admin' && password) {
       dispatch(login(name, remember));
       return;
     }
